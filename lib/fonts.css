@@ -1,0 +1,18 @@
+/* Free fonts bundled with the kit (assets/fonts/), so renders are offline and the same on every machine. */
+@font-face { font-family: 'Basement Grotesque'; src: url('fonts/basement-black.otf') format('opentype'); font-weight: 900; }
+@font-face { font-family: 'Bricolage Grotesque'; src: url('fonts/bricolage-grotesque-800.woff2') format('woff2'); font-weight: 800; }
+@font-face { font-family: 'Inter'; src: url('fonts/inter-var.woff2') format('woff2'); font-weight: 100 900; }
+@font-face { font-family: 'Geist'; src: url('fonts/geist.woff2') format('woff2'); font-weight: 100 900; }
+@font-face { font-family: 'Geist Mono'; src: url('fonts/geist-mono.woff2') format('woff2'); font-weight: 100 900; }
+@font-face { font-family: 'JetBrains Mono'; src: url('fonts/jetbrains-mono-500.woff2') format('woff2'); font-weight: 500; }
+@font-face { font-family: 'JetBrains Mono'; src: url('fonts/jetbrains-mono-700.woff2') format('woff2'); font-weight: 700; }
+@font-face { font-family: 'Figtree'; src: url('fonts/figtree-700-latin.woff2') format('woff2'); font-weight: 700; }
+@font-face { font-family: 'Figtree'; src: url('fonts/figtree-800-latin.woff2') format('woff2'); font-weight: 800; }
+@font-face { font-family: 'Figtree'; src: url('fonts/figtree-900-latin.woff2') format('woff2'); font-weight: 900; }
+@font-face { font-family: 'Lora'; src: url('fonts/lora-500-italic.woff2') format('woff2'); font-weight: 500; font-style: italic; }
+@font-face { font-family: 'Instrument Serif'; src: url('fonts/instrument-serif.woff2') format('woff2'); font-weight: 400; }
+@font-face { font-family: 'Instrument Serif'; src: url('fonts/instrument-serif-italic.woff2') format('woff2'); font-weight: 400; font-style: italic; }
+@font-face { font-family: 'Caveat'; src: url('fonts/caveat-700.woff2') format('woff2'); font-weight: 700; }
+@font-face { font-family: 'Archivo Black'; src: url('fonts/archivo-black.woff2') format('woff2'); font-weight: 400; }
+@font-face { font-family: 'Anton'; src: url('fonts/anton.woff2') format('woff2'); font-weight: 400; }
+@font-face { font-family: 'Big Shoulders Display'; src: url('fonts/big-shoulders-display-900.woff2') format('woff2'); font-weight: 100 900; }

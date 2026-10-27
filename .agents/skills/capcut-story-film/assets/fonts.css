@@ -1,0 +1,7 @@
+/* Fonts for the motion-graphics layers (all SIL Open Font License; see fonts/LICENSES.md). */
+@font-face { font-family: 'Big Shoulders Display'; src: url('fonts/big-shoulders-display-900.woff2') format('woff2'); font-weight: 100 900; }
+@font-face { font-family: 'JetBrains Mono'; src: url('fonts/jetbrains-mono-700.woff2') format('woff2'); font-weight: 700; }
+@font-face { font-family: 'Caveat'; src: url('fonts/caveat-700.woff2') format('woff2'); font-weight: 700; }
+@font-face { font-family: 'Figtree'; src: url('fonts/figtree-800-latin.woff2') format('woff2'); font-weight: 800; }
+@font-face { font-family: 'Instrument Serif'; src: url('fonts/instrument-serif.woff2') format('woff2'); font-weight: 400; }
+@font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-SemiBold.otf') format('opentype'); font-weight: 600; }

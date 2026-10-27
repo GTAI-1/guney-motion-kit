@@ -1,0 +1,68 @@
+<!doctype html>
+<!-- STARTER (10 s): the kit's first render and a working example of each piece: the animated background (change COLOR below),
+     a big title typed one letter at a time, two 3D-style cards that build on screen, and a Claude-style window that types a
+     prompt, gets an answer and zooms onto it. Change the words, the colour or the timings below. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Starter</title>
+<script src="assets/gsap.min.js"></script>
+<script src="assets/stage.js"></script>
+<script src="assets/kit-config.js"></script>
+<script src="assets/backdrop.js"></script>
+<script src="assets/text.js"></script>
+<script src="assets/cards.js"></script>
+<script src="assets/build.js"></script>
+<script src="assets/claudewin.js"></script>
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+  html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #07070A; }
+  #bg { position: absolute; inset: 0; }
+  #fg { position: absolute; inset: 0; z-index: 2; color: #F4F1EA; }
+  .kick  { position: absolute; left: 0; right: 0; top: 300px; text-align: center; font: 700 40px/1 'JetBrains Mono', monospace; letter-spacing: 0.16em; text-transform: uppercase; color: #CFC8BD; }
+  .title { position: absolute; left: 0; right: 0; top: 380px; text-align: center; font: 900 160px/1 'Basement Grotesque', sans-serif; }
+  .title b { color: var(--accent); font-weight: 900; }
+  .card-txt { font: 900 84px/1.02 'Basement Grotesque', sans-serif; }
+  .card-txt small { display: block; margin-top: 18px; font: 600 36px/1.3 'Inter', sans-serif; color: #CFC8BD; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="starter" data-start="0" data-duration="10" data-width="1920" data-height="1080">
+  <div id="bg" class="clip" data-start="0" data-duration="10" data-track-index="0"></div>
+  <div id="fg" class="clip" data-start="0" data-duration="10" data-track-index="1">
+    <div class="kick" id="kick">Your first video</div>
+    <div class="title" id="title"><span id="t1">Make it</span> <b id="t2">move.</b></div>
+  </div>
+</div>
+<script>
+(() => {
+  const S = STAGE, DUR = 10, COLOR = '#E8743C', $ = (id) => document.getElementById(id);
+  document.documentElement.style.setProperty('--accent', COLOR);
+  const tl = S.driver(DUR, () => {});
+  // the background, moving for the whole clip
+  BG.live(tl, BG.make($('bg'), { color: COLOR, motes: 26, seed: 7 }), DUR);
+  // the title: the kicker rises in word by word, the title types, then both lift away
+  TX.words(tl, $('kick'), 0.3);
+  const tEnd = TX.typeOn(tl, $('t1'), 0.9, 0.06); TX.slam(tl, $('t2'), tEnd + 0.1);
+  tl.to(['#kick', '#title'], { y: -620, opacity: 0, duration: 0.6, ease: 'power3.in' }, 2.8);
+  // two 3D-style cards build, one at a time, tilt, then drop away
+  const A = CARD.make($('fg'), { x: 300, y: 330, w: 600, h: 400, color: COLOR, html: '<div class="card-txt">Any colour<small>The background follows one setting.</small></div>' });
+  const B = CARD.make($('fg'), { x: 1020, y: 330, w: 600, h: 400, color: '#4FA3FF', html: '<div class="card-txt">Builds itself<small>Every piece arrives on its own.</small></div>' });
+  CARD.build(tl, A, 3.1, 'below'); CARD.build(tl, B, 3.6, 'right'); CARD.tilt(tl, A, DUR); CARD.tilt(tl, B, DUR);
+  tl.to([A.scene, B.scene], { y: 900, opacity: 0, duration: 0.5, ease: 'power3.in', stagger: 0.08 }, 5.0);
+  // a Claude-style window: its outline draws on, it rises, a prompt types and sends, the answer arrives, the view zooms onto it
+  const W = CW.make($('fg'), { title: 'Starter video', x: 410, y: 160, w: 1100, h: 760 });
+  const F = BUILD.frame($('fg'), { x: 410, y: 160, w: 1100, h: 760, r: 22, color: COLOR });
+  BUILD.drawFrame(tl, F, 5.3, 0.5);
+  tl.fromTo(W.view, { opacity: 0, y: 120, filter: 'blur(10px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.6, ease: 'expo.out', immediateRender: true }, 5.5);
+  const tSent = W.type(5.9, 'Make me a 10-second intro with a moving background.', 0.028) + 0.15;
+  W.send(tSent); W.reply(tSent + 0.3, ['On it: the background first, then the title,', 'then the cards, one at a time.'], 0.4);
+  W.zoom(tSent + 0.8, 0.55, W.lines[0], 1.7);
+  CW.live(tl, W, DUR);
+  tl.to([W.view, F.svg], { opacity: 0, y: 140, duration: 0.45, ease: 'power3.in' }, 9.45);
+  window.__timelines = window.__timelines || {};
+  window.__timelines['starter'] = tl;
+})();
+</script>
+</body>
+</html>

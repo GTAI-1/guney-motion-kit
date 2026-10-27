@@ -1,0 +1,20 @@
+{
+  "name": "guney-motion-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A HyperFrames kit: an animated background in any colour, big animated text, 3D-style elements, Claude-style windows with zooms, sound effects, frame checks and graphics over footage in DaVinci Resolve.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "new-video": "node scripts/new-video.mjs",
+    "sync": "node scripts/sync.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "dependencies": {
+    "hyperframes": "0.7.109",
+    "puppeteer-core": "25.7.0"
+  }
+}

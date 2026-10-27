@@ -1,0 +1,8 @@
+node_modules/
+video-projects/*
+!video-projects/.gitkeep
+kit.config.json
+.env
+.DS_Store
+qa/_*.html
+__pycache__/
